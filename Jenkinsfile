@@ -1,13 +1,10 @@
-
-
 pipeline{
     agent any
     tools {
         maven "Maven3"
         jdk "OracleJDK8"
     }
-
-    environment {
+ environment {
          SNAP_REPO = 'vprofile-snapshot'
          NEXUS_USER = 'admin'
          NEXUS_PASS = 'admin12345'
@@ -20,13 +17,14 @@ pipeline{
          SONARSERVER = 'sonarserver'
          SONARSCANNER = 'sonarscanner'
     }
-
-    stages {
+stages {
         stage('Build') {
             steps {
                sh 'mvn clean install -U -DskipTests -Dmaven.repo.local=~/.m2/repository'
             }
-       00         
+
+}               
 }
 }
-}
+               
+
